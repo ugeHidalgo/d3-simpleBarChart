@@ -1,6 +1,6 @@
 var data = [4, 8, 15, 16, 23, 42, 84];
 
-var width = 420,
+var width = 500,
     barHeight = 20;
 
 
@@ -8,8 +8,7 @@ var scale = d3.scaleLinear() //Escala el width de la barra al ancho del div
     .range([0, width]); //ancho del div
 
 var chart2 = d3.select("#ch2.chart")
-    .attr("width", width)
-    .attr("height", barHeight * data.length);
+    .attr("width", width);
 
 //Load the data from tab-separated fields file.
 d3.tsv("data/data.tsv", type, function(error, data2) {
@@ -23,14 +22,14 @@ d3.tsv("data/data.tsv", type, function(error, data2) {
                 .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
     bar.append("rect")
-        .attr("width", scale)
+        .attr("width", function(d) { return scale(d.value); })
         .attr("height", barHeight - 1);
 
     bar.append("text")
-        .attr("x", function(d) { return scale(d) - 3; }) //style sirve para fijar attributos de HTML
+        .attr("x", function(d) { return scale(d.value) - 3; }) //style sirve para fijar attributos de HTML
         .attr("y", barHeight / 2)
         .attr("dy", ".35em")
-        .text(function(d) { return d; });
+        .text(function(d) { return d.name + " (" + d.value + ")"; });
 });
 
 function type(d) {
