@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server used to invesigate d3 features",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ugeHidalgo/d3-simpleBarChart.git"
+  },
+  "keywords": [
+    "js",
+    "d3js"
+  ],
+  "author": "Eugenio Hidalgo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ugeHidalgo/d3-simpleBarChart/issues"
+  },
+  "homepage": "https://github.com/ugeHidalgo/d3-simpleBarChart#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
