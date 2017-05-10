@@ -1,5 +1,3 @@
-var data = [4, 8, 15, 16, 23, 42, 84];
-
 var width = 500,
     barHeight = 20;
 
@@ -12,9 +10,9 @@ var chart2 = d3.select("#ch2.chart")
 
 //Load the data from tab-separated fields file.
 d3.tsv("data/data.tsv", type, function(error, data2) {
-    scale.domain([0, d3.max(data2, function(d) { return d.value; })]);
+    scale.domain([0, d3.max(data2, function(d) { return d.value; })]); //Fija el domain del scale una vez conocidos los datos necesarios.
 
-    chart2.attr("height", barHeight * data2.length);
+    chart2.attr("height", barHeight * data2.length); //Fija la altura del chart una vez conocidos los datos necesarios
 
     var bar = chart2.selectAll("div")
                 .data(data2)
